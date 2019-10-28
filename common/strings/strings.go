@@ -1,6 +1,6 @@
 // Package strings provide additional functions to manipulate
 // utf-8 encoded strings.
-// Source code: https://https://github.com/pierDipi/go/tree/master/common/strings
+// Source: https://https://github.com/pierDipi/go/tree/master/common/strings
 package strings // import "github.com/pierdipi/go/common/strings"
 
 import (
