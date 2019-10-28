@@ -37,3 +37,7 @@ jobs:
       run: |
         cd common 
         go test -race -v ./...
+        
+    - name: SonarCloud Scan
+      uses: SonarSource/sonarcloud-github-action@v1.1
+
