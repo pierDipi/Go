@@ -37,6 +37,10 @@ func (assertor Assertor) AssertThatArray(arr []interface{}) Array {
 	return Array{arr: arr, t: assertor.t}
 }
 
+func (assertor Assertor) AssertThatError(err error) Error {
+	return Error{err: err, t: assertor.t}
+}
+
 type Integer struct {
 	got int64
 	t *testing.T
@@ -101,3 +105,21 @@ func (arr Array) IsEmpty() {
 		arr.t.Fatalf("expected an empty slice, got %v", arr.arr)
 	}
 }
+
+type Error struct {
+	err error
+	t *testing.T
+}
+
+func (err Error) IsNil() {
+	if err.err != nil {
+		err.t.Fatalf("expected nil error, got %v", err)
+	}
+}
+
+func (err Error) IsNotNil() {
+	if err.err == nil {
+		err.t.Fatalf("expected not nil error, got nil")
+	}
+}
+
