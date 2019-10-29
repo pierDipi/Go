@@ -11,6 +11,8 @@ func TestSameFiles(t *testing.T) {
 	f3 := "testdata/f2.txt"
 	assertor := assert.New(t)
 
+	const nonExistentFile = "_not_exists.txt"
+
 	isEqual, err := SameFiles(f1, f2)
 	assertor.AssertThatError(err).IsNil()
 	assertor.AssertThatBool(isEqual).IsEqual(true)
@@ -19,15 +21,15 @@ func TestSameFiles(t *testing.T) {
 	assertor.AssertThatError(err).IsNil()
 	assertor.AssertThatBool(isEqual).IsEqual(false)
 
-	isEqual, err = SameFiles(f1, "_not_exists.txt")
+	isEqual, err = SameFiles(f1, nonExistentFile)
 	assertor.AssertThatError(err).IsNotNil()
 	assertor.AssertThatBool(isEqual).IsEqual(false)
 
-	isEqual, err = SameFiles("_not_exists.txt", f1)
+	isEqual, err = SameFiles(nonExistentFile, f1)
 	assertor.AssertThatError(err).IsNotNil()
 	assertor.AssertThatBool(isEqual).IsEqual(false)
 
-	isEqual, err = SameFiles("_not_exists.txt")
+	isEqual, err = SameFiles(nonExistentFile)
 	assertor.AssertThatError(err).IsNil()
 	assertor.AssertThatBool(isEqual).IsEqual(true)
 }
