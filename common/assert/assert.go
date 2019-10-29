@@ -33,6 +33,10 @@ func (assertor Assertor) AssertThatFunction(f function) Function {
 	return Function{f: f, t: assertor.t}
 }
 
+func (assertor Assertor) AssertThatArray(arr []interface{}) Array {
+	return Array{arr: arr, t: assertor.t}
+}
+
 type Integer struct {
 	got int64
 	t *testing.T
@@ -85,4 +89,15 @@ func didPanic(f function) (panicFlag bool)  {
 	}()
 	f()
 	return false
+}
+
+type Array struct {
+	arr []interface{}
+	t *testing.T
+}
+
+func (arr Array) IsEmpty() {
+	if len(arr.arr) != 0 {
+		arr.t.Fatalf("expected an empty slice, got %v", arr.arr)
+	}
 }
