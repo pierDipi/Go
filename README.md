@@ -1,4 +1,4 @@
-[![Actions Status](https://github.com/pierDipi/go/workflows/go/badge.svg)](https://github.com/pierDipi/go/actions)
+![](https://github.com/pierDipi/go/workflows/Go/badge.svg)
 
 # go
 My Go monorepo
