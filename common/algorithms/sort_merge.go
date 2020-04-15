@@ -2,16 +2,6 @@ package algorithms
 
 import "github.com/cheekybits/genny/generic"
 
-//go:generate genny -in=$GOFILE -out=sort_merge-int_gen.go gen "T=int"
-//go:generate genny -in=$GOFILE -out=sort_merge-int32_gen.go gen "T=int32"
-//go:generate genny -in=$GOFILE -out=sort_merge-int64_gen.go gen "T=int64"
-//go:generate genny -in=$GOFILE -out=sort_merge-string_gen.go gen "T=string"
-//go:generate genny -in=$GOFILE -out=sort_merge-float32_gen.go gen "T=float32"
-//go:generate genny -in=$GOFILE -out=sort_merge-float64_gen.go gen "T=float64"
-//go:generate genny -in=$GOFILE -out=sort_merge-interface_gen.go gen "T=interface{}"
-//go:generate genny -in=$GOFILE -out=sort_merge-byte_gen.go gen "T=byte"
-//go:generate genny -in=$GOFILE -out=sort_merge-rune_gen.go gen "T=rune"
-
 type T generic.Type
 
 // ComparatorT is a function that given two elements of type T returns x such that:
