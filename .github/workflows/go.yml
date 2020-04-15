@@ -1,8 +1,5 @@
 name: Go
-on: 
-  push:
-    branches: 
-      - master
+on:
   pull_request:
     branches:
       - master
@@ -25,12 +22,17 @@ jobs:
 
     - name: Get common dependencies
       run: |
+        go install github.com/cheekybits/genny
         cd common
         go get -v -t -d ./...
         if [ -f Gopkg.toml ]; then
             curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
             dep ensure
         fi
+        go generate ./...
+        git add .
+        git commit -S -s -m "Go generate"
+        git push
 
     - name: Test common module
       run: |
