@@ -7,5 +7,5 @@ Generic algorithms written in Go.
 **Merge Sort** 
 
 ```bash
-wget -q -O - "https://github.com/pierDipi/go/tree/master/common/algorithms/sort_merge.go" | genny gen "T=<YOUR_TYPE>" >> your_file_name.go
+wget -q -O - "https://github.com/pierdipi/go/raw/master/common/algorithms/sort_merge.go" | genny gen "T=<YOUR_TYPE>" >> your_file_name.go
 ```
